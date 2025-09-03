@@ -1,22 +1,16 @@
 import wpilib.simulation as sim
 from wpilib import RobotController, DriverStation
-
 from wpilib.simulation import DifferentialDrivetrainSim
 from wpimath.kinematics import DifferentialDriveKinematics, DifferentialDriveWheelSpeeds
 from wpimath.system.plant import DCMotor
 from wpimath.units import inchesToMeters
-
 from pyfrc.physics.core import PhysicsInterface
-
 from phoenix6 import unmanaged, sim
-
 import math
-
 import typing
 
 if typing.TYPE_CHECKING:
     from robot import MyRobot
-
 
 class PhysicsEngine:
 
@@ -32,7 +26,7 @@ class PhysicsEngine:
         track_width = 0.546
 
         self.drivetrain = DifferentialDrivetrainSim(
-            DCMotor.krakenX60FOC(1),            # 2 Kraken X60 on each side of the drivetrain
+            DCMotor.falcon500(1),               # 2 Kraken X60 on each side of the drivetrain
             self.gear_ratio,                    # drivetrain gear ratio
             2.1,                                # MOI of 2.1 kg m^2 (from CAD model)
             26.5,                               # Mass of the robot is 26.5 kg
